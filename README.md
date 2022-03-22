@@ -1,2 +1,4 @@
-![main form design](design/main-form.png)
+Design:
+
+[main form design](design/main-form.png)
 ![design cards](design/cards.png)
