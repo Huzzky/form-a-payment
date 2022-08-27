@@ -24,7 +24,7 @@ function App() {
   return (
       <BlockFormStyle>
           <DivWrapperForm>
-            <Form/><Card/>
+              <Form/>
           </DivWrapperForm>
       </BlockFormStyle>
   );

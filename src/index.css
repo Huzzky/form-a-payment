@@ -16,6 +16,19 @@ body {
   height: 100vh;
 }
 
+@font-face {
+  font-family: "Aleo Regular";
+  src: url("../font/Aleo-Regular.ttf");
+}
+
+@font-face {
+  font-family: "Aleo Bold";
+  src: url("../font/Aleo-Bold.ttf");
+}
+
+label, p, h1, h2 {
+  font-family: "Aleo Regular", serif
+}
 @media (max-width: 1024px) {
   #root {
     height: 85vh;
