@@ -1,10 +1,9 @@
 import './App.css';
-import UnitedCardUIAndForm from "./Components/UnitedCardUIAndForm";
 
 function App() {
   return (
     <div className="App">
-      <UnitedCardUIAndForm />
+        <h1>Hello</h1>
     </div>
   );
 }

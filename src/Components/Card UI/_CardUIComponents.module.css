@@ -1,9 +1,0 @@
-.CardUI {
-    z-index: 3;
-    width: 500px;
-    height: 313px;
-    background: #242424;
-    position: absolute;
-    box-shadow: 0px 2px 20px 1px rgba(0, 0, 0, 0.3);
-    border-radius: 25px;
-}
