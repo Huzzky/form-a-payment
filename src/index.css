@@ -27,8 +27,9 @@ body {
 }
 
 label, p, h1, h2 {
-  font-family: "Aleo Regular", serif
+  font-family: 'Segoe UI';
 }
+
 @media (max-width: 1024px) {
   #root {
     height: 85vh;

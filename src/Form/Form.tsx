@@ -1,6 +1,7 @@
 import styled from "styled-components";
 import Input from "./Input/Input";
 import Card from "../Card/Card";
+import Label from "./Label/Label";
 
 const FormStyled = styled.form`
     display: grid;
@@ -32,36 +33,42 @@ const WrapperBlockInputs = styled.div`
     grid-row: 2 / 5;
     display: flex;
     flex-direction: column;
-    justify-center: center;
+    justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100%;
+
 `
 const FieldInput = styled.div`
+    width: 55.5%;
     display: flex;
     flex-direction: column;
-    justify-content: left;
+    height: 100px;
 `
+
+
 
 const Form = () => {
     return <FormStyled>
         <Card/>
         <WrapperBlockInputs>
             <FieldInput>
-                <label>Номер карты</label>
-                <Input/>
+                <Label text={'Номер карты'}/>
+                <Input type={"text"} width={'100%'}/>
             </FieldInput>
-            <div style={{display:"flex"}}>
+            <div style={{display:"flex", height:'100px', justifyContent:'space-between', width:"55%"}}>
                 <FieldInput>
-                    <label>Срок</label>
-                    <Input/>
+                    <Label text={'Срок'} />
+                    <Input type={"text"} width={'60%'}/>
                 </FieldInput>
                 <FieldInput>
-                    <label>CVC</label>
-                    <Input/>
+                    <Label text={'CVC'}/>
+                    <Input type={'text'} width={'60%'}/>
                 </FieldInput>
             </div>
             <FieldInput>
-                <label>Владелец карты</label>
-                <Input/>
+                <Label text={"Владелец карты"} />
+                <Input type={"text"} width={'100%'}/>
             </FieldInput>
         </WrapperBlockInputs>
     </FormStyled>
