@@ -9,7 +9,7 @@ const CardStyled = styled.form`
   	box-shadow: 0px 2px 20px 1px rgba(0, 0, 0, 0.3);
   	border-radius: 25px;
   	position: absolute;
-  	margin-top: -10em;
+  	margin-top: -8em;
 `
 
 const Card = () => {

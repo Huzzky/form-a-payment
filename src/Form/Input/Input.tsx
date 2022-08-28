@@ -1,12 +1,17 @@
 import styled from "styled-components";
-import React from "react";
+import React, {useState} from "react";
 
 
 
 interface InputProps {
 	type: string
 	width: string
+	model: string
 }
+
+const date = new Date()
+
+
 
 const InputStyled = styled.input`
 	width: ${props => props.width};
@@ -15,10 +20,25 @@ const InputStyled = styled.input`
   	border-radius: 5px;
   	border: none;
   	height: 50px;
+  	font-size: 28px;
+  	color: #434343;
+	padding-left: 0.4em;
 `
 
-const Input:React.FC <InputProps> = ({type, width}) => {
-	return <InputStyled type={type} width={width}/>
+const Input:React.FC <InputProps> = ({type, width, model}) => {
+	const [InputValue, setInput] = useState({
+		numberCard: '',
+		date: '',
+		cvc: '',
+		nameOfCard: '',
+	})
+	
+	const changeState = (value:any) => {
+		// @ts-ignore
+		setInput({...InputValue, value})
+	}
+	
+	return <InputStyled onChange={e => changeState({numberCard: e.currentTarget.value})} value={InputValue} type={type} width={width}/>
 }
 
 export default Input;

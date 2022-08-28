@@ -12,8 +12,9 @@ const LabelStyled = styled.label`
   font-size: 30px;
   color: #434343;
   font-weight: 400;
-  font-size: 30px;
   height: 36px;
+  padding-bottom: 0.2em;
+  
 `
 
 const Label:React.FC <LabelProps> = ({text}) => {
