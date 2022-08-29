@@ -38,7 +38,7 @@ const Input:React.FC <InputProps> = ({type, width, model}) => {
 		setInput({...InputValue, value})
 	}
 	
-	return <InputStyled onChange={e => changeState({numberCard: e.currentTarget.value})} value={InputValue} type={type} width={width}/>
+	return <InputStyled onChange={e => changeState({numberCard: e.currentTarget.value})} value={InputValue.numberCard} type={type} width={width}/>
 }
 
 export default Input;
