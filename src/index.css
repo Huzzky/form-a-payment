@@ -16,6 +16,7 @@ body {
   height: 100vh;
 }
 
+
 @font-face {
   font-family: "Aleo Regular";
   src: url("../font/Aleo-Regular.ttf");
@@ -26,8 +27,8 @@ body {
   src: url("../font/Aleo-Bold.ttf");
 }
 
-label, p, h1, h2 {
-  font-family: 'Segoe UI';
+label, p, h1, h2, button, input::placeholder, input {
+  font-family: 'Aleo Regular';
 }
 
 @media (max-width: 1024px) {

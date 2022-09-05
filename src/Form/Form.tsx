@@ -1,7 +1,8 @@
 import styled from "styled-components";
 import Card from "../Card/Card";
-import React from "react";
+import React, { useState } from "react";
 import Input from "./Input/Input";
+import { Button } from "./Button/Button";
 
 const FormStyled = styled.form`
   display: grid;
@@ -12,7 +13,9 @@ const FormStyled = styled.form`
   width: 46%;
   height: 57%;
   background: #ffffff;
-  box-shadow: 0 2px 20px 1px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 2px 20px 1px rgba(0, 0, 0, 0.2);
+  //box-shadow: 0 2px 125px 1px rgba(255, 0, 0, 0.8);
+  //box-shadow: 0 2px 125px 1px rgba(0, 175, 0, 0.8);
   border-radius: 25px;
 
   @media (max-width: 1024px) {
@@ -49,27 +52,52 @@ const FieldInput = styled.div`
   margin-bottom: 2em;
 `;
 
-
+const Wrapper2Input = styled.div`
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+`;
 
 const Form = () => {
+  const [formState, setFormState] = useState({
+    numberCard: "",
+    date: "",
+    cvc: "",
+    name: "",
+  });
+
+  const setFormStateFunc = (value: object) => {
+    setFormState({ ...formState, ...value });
+  };
   return (
     <FormStyled>
       <Card />
       <WrapperBlockInputs>
         <FieldInput>
-          <Input width={"100%"} model={"numberCard"} />
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-between",
-              width: "100%",
-            }}
-          >
-            <Input width={'30%'} model={'date'}/>
-            <Input width={'30%'} model={'cvc'}/>
-          </div>
-          <Input width={'100%'} model={'name'}/>
+          <Input
+            width={"100%"}
+            model={"numberCard"}
+            setValueForm={setFormStateFunc}
+          />
+          <Wrapper2Input>
+            <Input
+              width={"30%"}
+              model={"date"}
+              setValueForm={setFormStateFunc}
+            />
+            <Input
+              width={"30%"}
+              model={"cvc"}
+              setValueForm={setFormStateFunc}
+            />
+          </Wrapper2Input>
+          <Input
+            width={"100%"}
+            model={"name"}
+            setValueForm={setFormStateFunc}
+          />
         </FieldInput>
+        <Button />
       </WrapperBlockInputs>
     </FormStyled>
   );

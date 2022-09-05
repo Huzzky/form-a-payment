@@ -1,6 +1,6 @@
 import styled from "styled-components";
-import React from "react";
-import {IMask, IMaskMixin} from "react-imask";
+import React, {ReactElement} from "react";
+import { IMask, IMaskMixin } from "react-imask";
 
 interface PropsStyle {
   widthInput: string;
@@ -19,15 +19,31 @@ const InputStyled = styled.input<PropsStyle>`
   margin-right: -0.4em;
 `;
 
-const MaskedInput = IMaskMixin(({ ...props }: any) => {
-  return <InputStyled ref={props.inputRef} widthInput={props.width} placeholder={props.placeholder}/>;
+const MaskedInput = IMaskMixin(({ ...props }: any, set: Function) => {
+  return (
+    <InputStyled
+      required
+      ref={props.inputRef}
+      widthInput={props.width}
+      placeholder={props.placeholder}
+      onChange={(e)=> set({})}
+    />
+  );
 });
 
-
-const Input = ({ width, model }: { model: string; width: string }) => {
+const Input = ({
+  width,
+  model,
+  setValueForm,
+}: {
+  model: string;
+  width: string;
+  setValueForm: Function;
+}) => {
+  console.log(typeof setValueForm)
   const date: any = new Date();
   const dateLast2Number: string = date.getFullYear().toString().substr(2, 4);
-  
+
   const maskSwitch = (model: string) => {
     switch (model) {
       case "numberCard":
@@ -42,7 +58,7 @@ const Input = ({ width, model }: { model: string; width: string }) => {
         return "";
     }
   };
-  
+
   const placeholderSwitch = (model: string) => {
     switch (model) {
       case "numberCard":
@@ -60,6 +76,7 @@ const Input = ({ width, model }: { model: string; width: string }) => {
   // @ts-ignore
   // Заглушка нужна для того, чтобы не ругался на Regexp
   return <MaskedInput
+      set={setValueForm}
       width={width}
       mask={maskSwitch(model)}
       placeholder={placeholderSwitch(model)}
@@ -78,7 +95,7 @@ const Input = ({ width, model }: { model: string; width: string }) => {
           to: 12,
         },
       }}
-  />
+    />
 };
 
 export default Input;
